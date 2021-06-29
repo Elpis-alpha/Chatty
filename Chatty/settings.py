@@ -13,6 +13,13 @@ import os
 
 from pathlib import Path
 
+import django_heroku
+
+import dj_database_url
+
+from decouple import config
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,6 +61,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Chatty.urls'
@@ -158,6 +167,8 @@ REST_FRAMEWORK = {
 # For Static files
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'Static')]
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # For the LoginRequiredMixin
 LOGIN_URL = 'authentication/login/'
 
@@ -178,3 +189,5 @@ EMAIL_HOST_PASSWORD = "gpygrfjcbhbtcdfy"
 MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
 
 MEDIA_URL = "media/"
+
+django_heroku.settings(locals())

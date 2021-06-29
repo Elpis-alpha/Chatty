@@ -141,6 +141,6 @@ if __name__ == '__main__':
 
   print('Populating Database...')
 
-  # populate_database(150)
+  populate_database(50)
 
   print('Database Populated')

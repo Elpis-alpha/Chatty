@@ -1,0 +1,411 @@
+@font-face{
+  src: url(../font/noto_serif.ttf);
+  font-family: BaseFont;
+}
+
+@font-face{
+  src: url(../font/mate_SC.ttf);
+  font-family: MateFont;
+}
+
+
+html{
+  font-size: 15px;
+}
+
+@media screen and (max-width: 800px) {
+  
+  html{
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  
+  html{
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  
+  html{
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  
+  html{
+    font-size: 11px;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  
+  html{
+    font-size: 10px;
+  }
+
+}
+
+@media screen and (max-width: 300px) {
+  
+  html{
+    font-size: 8px;
+  }
+
+}
+
+@media screen and (max-width: 200px) {
+  
+  html{
+    font-size: 5px;
+  }
+
+}
+
+@media screen and (max-width: 100px) {
+  
+  html{
+    font-size: 4px;
+  }
+
+}
+
+@media screen and (max-width: 80px) {
+  
+  html{
+    font-size: 3px;
+  }
+
+}
+
+@media screen and (max-width: 50px) {
+  
+  html{
+    font-size: 2px;
+  }
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-family: inherit;
+  fill: inherit;
+}
+
+input::placeholder{
+  font-size: .9rem;
+  font-family: inherit;
+}
+
+input{
+  font-size: .9rem;
+  font-family: inherit;
+}
+
+body{
+  line-height: 1.6rem;
+  font-family: BaseFont;
+}
+
+div.site-topper{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 500;
+  background-color: #f4f4f4;
+}
+
+div.site-topper nav{
+  display: flex;
+}
+
+svg{
+  height: inherit;
+  width: inherit;
+}
+
+i{
+  height: 1rem;
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+}
+
+i svg{
+  z-index: -5;
+}
+
+body{
+  min-height: 100vh;
+  background-color: #f4f4f4;
+}
+
+div.big-wrapper{
+  min-height: 100vh;
+}
+
+div.full-holder{
+  display: flex;
+  flex-direction: row;
+}
+
+/* Authentication Style */
+div.auth-card-holder{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card{
+  max-width: 500px;
+  width: 80%;
+  padding: 1rem;
+  box-shadow: 0 0 7px 1px #484aeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #484aeb;
+  color: white;
+}
+
+div.auth-card div.card-inside{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.auth-card div.card-logo{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card div.card-logo img{
+  width: 30%;
+}
+
+div.auth-card div.card-logo i{
+  margin: 1rem 0;
+  width: 30%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card div.card-text{
+  text-align: center;
+  font-weight: bold;
+}
+
+div.auth-card div.card-text p{
+  text-align: center;
+  font-weight: normal;
+  margin-top: .5rem;
+}
+
+div.auth-card div.card-text h3{
+  text-align: center;
+  font-weight: bold;
+  margin-top: .5rem;
+}
+
+div.auth-card div.card-message{
+  display: none;
+  background-color: green;
+  color: white;
+  padding: .2rem .6rem;
+  margin: .5rem 0 0 0;
+  border-radius: .5rem;
+  width: 60%;
+  fill: red;
+  align-items: center;
+  justify-content: center;
+  line-height: .8rem;
+  font-size: .7rem;
+  text-align: center
+}
+
+div.auth-card div.card-message #cd-message{
+  flex: 1;
+}
+
+div.auth-card div.card-message.show{
+  display: flex;
+}
+
+div.auth-card div.card-message.bad{
+  background-color: red;
+  fill: white;
+}
+
+div.auth-card div.card-message.warn{
+  background-color: rgb(85, 35, 7);
+  fill: white;
+}
+
+div.auth-card div.card-form{
+  width: 100%;
+}
+
+div.auth-card div.card-form form{
+  width: 100%;
+}
+
+div.auth-card div.card-form form .form-item{
+  width: 100%;
+  margin-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card div.card-form form .form-item .basic-input{
+  background-color: #f4f4f4;
+  border-radius: .3rem;
+  padding: .5rem;
+  padding-left: .5rem;
+  width: 70%;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 0;
+  transition: all .5s;
+  line-height: 1rem;
+}
+
+div.auth-card div.card-form form .form-item input.basic-input:focus{
+  border: 0px none;
+  box-shadow: 0 0 5px 1px grey;
+}
+
+div.auth-card div.card-form form .form-item .form-button{
+  background-color: royalblue;
+  border-radius: .3rem;
+  padding: .3rem;
+  width: 60%;
+  border: 0;
+  transition: all .5s;
+  color: #fff;
+}
+
+div.auth-card div.card-form form .form-item .form-button:hover{
+  background-color: #484aeb;
+  box-shadow: 0 0 5px 1px white;
+  cursor: pointer;
+}
+
+div.auth-card div.card-form form .form-status{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+div.auth-card div.card-form form .form-status i.right{
+  fill: green;
+}
+
+div.auth-card div.card-form form .form-status i.wrong{
+  fill: red;
+}
+
+div.auth-card div.card-or-else{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+
+div.auth-card div.or-for-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 70%;
+}
+
+div.auth-card div.or-for-form span.flat-border{
+  border-top: 1px solid white;
+  flex: 1;
+  height: 0px;
+  margin: 0 .5rem;
+}
+
+div.auth-card div.or-for-form span.the-or{
+  flex: 0;
+}
+
+div.auth-card div.other-or{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+div.auth-card div.other-or a{
+  color: white;
+  font-size: .8rem;
+  text-decoration: none;
+  margin-top: 1rem;
+  transition: color .5s;
+}
+
+div.auth-card div.other-or a:hover{
+  color: #9697e2;
+}
+
+div.auth-card div.card-form form .form-item .the-end-svg{
+  z-index: 10;
+  position: absolute;
+  right: calc(15% + 5px);
+  top: calc(50% - .5rem);
+  height: 1rem;
+}
+
+div.auth-card div.card-form form .form-item .the-end-svg i{
+  z-index: -1;
+}
+
+div.auth-card div.card-form form .form-item .the-end-svg span{
+  z-index: 10;
+  position: absolute;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+div.auth-card div.card-form form .form-item small{
+  position: absolute;
+  bottom: -1.2rem;
+  left: 0; right: 0;
+  width: 100%;
+  text-align: center;
+  font-size: .7rem;
+}
+
+div.auth-card div.card-form form .form-item small.bad{
+  color: red;
+}
+
+div.auth-card div.card-form form .form-item small.good{
+  color: greenyellow;
+}

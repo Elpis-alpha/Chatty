@@ -1,0 +1,90 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }} | {{ chatty_group.group_name }} Details{% endblock title %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/group_detail.css' %}">
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="right-side">
+
+  <div class="preview-card" id="preview-card">
+
+    <div class="otherx-cover">
+
+      <div class="preview-name">
+
+        <div class="label">Name:</div>
+
+        <div>{{ chatty_group.group_name }}</div>
+
+      </div>
+
+      <div class="preview-des">
+
+        <div class="label">Description:</div>
+
+        <div>
+
+          {% if chatty_group.description %}
+
+          {{ chatty_group.description }}
+
+          {% else %}
+
+          <em>Not Provided</em>
+
+          {% endif %}
+
+        </div>
+
+      </div>
+
+      <div class="preview-name">
+
+        <div class="label">Members:</div>
+
+        <div>
+
+          <ul>
+
+            {% for member in chatty_group.group_members.all %}
+
+            <li>
+
+              <a href="{% url 'chat:dialogue' member.username %}">
+
+                <span>Name: {{ member.display_name }}</span>
+
+                <span>Username: {{ member.username }}</span>
+
+              </a>
+
+            </li>
+
+            {% endfor %}
+
+          </ul>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,538 @@
+div.main-content{
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex: 1;
+}
+
+div.main-content > div.special-overflow{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+div.main-content > div.special-overflow.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image{
+  display: none;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.special-overflow > div.expand-image.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image img{
+  max-height: 70%;
+  max-width: 70%;
+  box-shadow: 0 0 10px 1px black;
+}
+
+div.main-content > div.left-side{
+  flex: 2.5;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  max-width: 200px;
+  background-color: grey;
+  align-self: stretch;
+  box-shadow: 0 0 5px 1px black;
+}
+
+div.main-content > div.right-side{
+  align-self: stretch;
+  /* min-height: 400vh; */
+  flex: 7.5;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+
+  div.main-content > div.right-side{
+
+    width: 100vw;
+    
+  }
+  
+  div.main-content > div.left-side{
+    
+    display: none;
+
+  }
+
+}
+
+div.full-holder{
+  height: 100vh;
+}
+
+div.full-holder main{
+  display: flex;
+  flex-direction: column;
+}
+
+div.main-content > div.right-side section.messages{
+  flex: 1;
+  padding: .5rem;
+}
+
+div.main-content > div.right-side section.chat-input{
+  flex: 0;
+}
+
+div.main-content > div.right-side section.messages div.inner{
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  border-bottom: 5px dotted grey;
+  padding-bottom: 1rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.my-loaders{
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.right-side section.messages div.inner div.no-messages{
+  min-height: 100%;
+  min-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.right-side section.messages div.inner div.no-messages span{
+  font-size: 2rem;
+  max-width: 80%;
+  line-height: 3rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message{
+  width: 100%;
+  display: flex;
+  margin: .5rem 0;
+}
+
+div.main-content > div.right-side section.messages div.inner div.my-message{
+  margin-left: auto;
+  max-width: 45%;
+  background-color: #b3b3b3;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message-content{
+  white-space: break-spaces;
+  word-break: break-word;
+}
+
+div.main-content > div.right-side section.messages div.inner div.my-message div.message-otherss{
+  font-size: .6rem;
+  line-height: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+div.main-content > div.right-side section.messages div.inner div.my-message div.message-otherss span.message-status{
+  padding-left: .5rem;
+  font-size: .8rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.other-message{
+  margin-right: auto;
+  max-width: 45%;
+  background-color: #b3b3b3;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.other-message div.message-otherss{
+  font-size: .6rem;
+  line-height: 1rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-refferal{
+  cursor: pointer;
+  background-color: #a0a0a0;
+  box-shadow: 0 0 2px 1px #5c5c5c;
+  border-radius: 1rem;
+  padding: .5rem;
+  overflow: hidden;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-refferal div.refferal-color{
+  background-color: #100792;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100% + 1rem);
+  width: .2rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-refferal div.refferal-name{
+  color: #100792;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-refferal div.refferal-context{
+  color: black;
+  text-decoration: none;
+  font-size: .8rem;
+  line-height: 1.6rem;
+  max-height: 3rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message a{
+  text-decoration: none;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-image{
+  width: 100%;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-image img{
+  cursor: pointer;
+  width: 100%;
+  border-radius: 1rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-file{
+  width: 100%;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-file img{
+  cursor: pointer;
+  width: 1rem;
+  margin-right: .3rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-file a{
+  display: block;
+  text-decoration: none;
+  color: #826606;
+  display: flex;
+  align-items: center;
+}
+
+div.main-content > div.right-side section.messages div.inner div.message div.message-content-seperator{
+  width: 100%;
+  height: .5rem;
+}
+
+div.main-content > div.right-side section.messages div.inner div.middle-message{
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+  background-color: #b3b3b3;
+  border-radius: 1rem;
+  padding: .5rem;
+}
+
+div.main-content > div.right-side section.messages div.inner span.message-ellipses{
+  flex: 1;
+  align-self: flex-end;
+  height: 1rem;
+}
+
+div.main-content > div.right-side section.messages div.inner span.message-ellipses > span{
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.right-side section.messages div.inner span.message-ellipses > span > i{
+  width: .7rem;
+  height: .7rem;
+  margin-left: .35rem;
+  z-index: 7;
+}
+
+div.main-content > div.right-side section.messages div.inner span.message-ellipses > span > span{
+  cursor: pointer;
+  position: absolute;
+  top: -.2rem;
+  left: 0; right: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  z-index: 10;
+  border-radius: 50%;
+}
+
+div.main-content > div.right-side section.messages div.inner span.message-ellipses > span > span:hover{
+  background-color: rgba(0, 0, 0, 0.274);
+}
+
+div.main-content section.messages div.inner div.my-message span.message-ellipses div.elipses-content{
+  position: absolute;
+  right: 0; top: 0;
+  z-index: 12;
+  box-shadow: 0 0 4px 1px black;
+}
+
+div.main-content section.messages div.inner div.other-message span.message-ellipses div.elipses-content{
+  position: absolute;
+  left: 0; top: 0;
+  z-index: 12;
+  box-shadow: 0 0 4px 1px black;
+}
+
+div.main-content section.messages div.inner span.message-ellipses div.elipses-content ul > li{
+  z-index: 12;
+  padding: 0 .5rem;
+  list-style-type: none;
+  background-color: grey;
+}
+
+div.main-content section.messages div.inner span.message-ellipses div.elipses-content ul > li:hover{
+  background-color: rgb(60, 60, 60);
+}
+
+div.main-content > div.right-side section.chat-input div.inner{
+  padding: .5rem;
+  padding-top: 1.2rem;
+}
+
+div.main-content > div.right-side section.chat-input div.inner form{
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.other-fields{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.message-field{
+  flex: 5;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item textarea.message-text{
+  background-color: #f4f4f4;
+  border-radius: .5rem;
+  padding: .3rem;
+  padding-left: .5rem;
+  width: 100%;
+  height: 100%;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 0;
+  transition: all .5s;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item textarea.message-text:focus{
+  border: 0px none;
+  box-shadow: 0 0 5px 1px grey;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item input.message-send{
+  background-color: #777777;
+  border-radius: .3rem;
+  padding: .3rem;
+  width: 30%;
+  border: 0;
+  transition: all .5s;
+  color: black;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item input.message-send:hover{
+  background-color: #777777;
+  box-shadow: 0 0 5px 1px black;
+  cursor: pointer;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item div.file-input{
+  z-index: 9;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item input#file-field{
+  z-index: 10;
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item span.file-cover{
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #484aeb;
+  z-index: 9;
+  padding: .2rem .5rem;
+  border-radius: .5rem;
+  color: white;
+  text-align: center;
+  line-height: .9rem;
+  width: 80%;
+  font-size: .7rem;
+  margin-top: .1rem;
+  transition: box-shadow .5s;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item span.file-cover.loaded{
+  background-color: green;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item span.file-cover.error{
+  background-color: red;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item div.file-input:hover span.file-cover{
+  box-shadow: 0 0 5px 1px #15176e;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item span.add-username{
+  cursor: pointer;
+  background-color: #484aeb;
+  z-index: 9;
+  padding: .2rem .5rem;
+  border-radius: 1rem;
+  color: white;
+  width: 80%;
+  text-align: center;
+  line-height: .9rem;
+  font-size: .7rem;
+  margin-bottom: .1rem;
+  transition: box-shadow .5s;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item span.add-username:hover{
+  box-shadow: 0 0 5px 1px #15176e;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.submit{
+  min-width: 3rem;
+  margin-left: .5rem;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.submit button{
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background-color: green;
+  border: 2px solid green;
+  transition: box-shadow .5s, border .5s;
+  cursor: pointer;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.submit button i{
+  height: 1.3rem;
+  fill: white;
+}
+
+div.main-content > div.right-side section.chat-input div.inner div.form-item.submit button:hover{
+  box-shadow: 0 0 5px 1px black;
+  border: 0 solid green;
+}
+
+div.main-content section.chat-input div.inner div.reffered-to{
+  position: absolute;
+  top: -1rem; right: 0;
+  left: 0; width: 100%;
+  height: 1rem;
+  line-height: .8rem;
+  font-size: .8rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+div.main-content div.head-over-bar{
+  position: fixed;
+  top: 5rem;
+  left: 10%;
+  width: 80%;
+  background-color: #777777;
+  border-radius: 1rem;
+  box-shadow: 0 0 5px 1px black;
+  padding: 0 .5rem;
+  opacity: .5;
+  transition: opacity .5s;
+}
+
+div.main-content div.head-over-bar:hover{
+  opacity: 1;
+}
+
+div.main-content div.head-over-bar div.inside-head-over{
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.back{
+  fill: white;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.back i{
+  fill: white;
+  height: 2rem;
+  transition: fill .5s;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.back i:hover{
+  fill: blue;
+  height: 2rem;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.name{
+  flex: 1;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.name a{
+  color: white;
+  text-decoration: none;
+  transition: color .5s;
+}
+
+div.main-content div.head-over-bar div.inside-head-over div.name a:hover{
+  color: blue;
+  text-decoration: none;
+}

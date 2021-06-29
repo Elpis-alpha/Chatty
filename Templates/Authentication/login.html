@@ -1,0 +1,110 @@
+{% extends "Authentication/base.html" %}
+
+{% load static %}
+
+
+{% block title %}Login{% endblock title %}
+
+
+{% block otherlinks %}
+
+<script defer src="{% static 'Authentication/js/login.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="card-inside">
+
+  <div class="card-logo">
+
+    <img src="{% static 'Authentication/images/imagefav.png' %}" alt="">
+
+  </div>
+
+  <div class="card-text">
+
+    Login to your account
+
+  </div>
+
+  <div class="card-message {{ m_type }}">
+
+    <span id="cd-message">{{ message }}</span>
+
+    <span id="card-close">
+
+      <i class="js-crossx"></i>
+
+    </span>
+
+  </div>
+
+  <div class="card-form">
+
+    <form method="POST" action="{% url 'authviews:login'  %}" id="sendform">
+
+      {% csrf_token %}
+
+      <div class="form-item">
+
+        <input type="text" required name="username" autocomplete="off" id="usernameField" placeholder="Username or Email" class="basic-input">
+
+        <small id="nameField-text"></small>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="password" required autocomplete="off" id="passwordField" name="password" class="basic-input end-svg" placeholder="Password">
+
+        <small id="passwordField-text"></small>
+
+        <div class="the-end-svg">
+
+          <span id="the-end-svg"></span>
+
+          <i class="js-eyeliner"></i>
+
+        </div>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="submit" value="Login" class="form-button">
+
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="card-or-else">
+
+    <div class="or-for-form">
+
+      <span class="flat-border"></span>
+
+      <span class="the-or">OR</span>
+
+      <span class="flat-border"></span>
+
+    </div>
+
+    <div class="other-or">
+
+      <a href="{% url 'authviews:register' %}">Create an Account</a>
+
+      <a href="{% url 'authviews:new_password'  %}">Forgot Password</a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

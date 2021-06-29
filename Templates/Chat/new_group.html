@@ -1,0 +1,96 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }}{% endblock title %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/new_group.css' %}">
+
+<script defer src="{% static 'Chat/js/new_group.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="auth-card-holder">
+
+  <div class="auth-card">
+
+    <div class="card-inside">
+
+      <div class="card-text">
+
+        Create a new group
+
+      </div>
+
+      <div class="card-form">
+
+        <form method="POST" action="{% url 'chat:new-group' %}" enctype="multipart/form-data" id="sendform">
+
+          <input type="number" name="date_created" id="date_created" class="all-invincible">
+
+          {% csrf_token %}
+
+          <div class="form-item">
+
+            <input type="text" required="" name="group_name" autocomplete="off" id="usernameField"
+              placeholder="Group Name" class="basic-input">
+
+          </div>
+
+          <div class="form-item">
+
+            <textarea name="description" placeholder="Description"></textarea>
+
+          </div>
+
+          <div class="form-item">
+
+            <div class="file-input">
+
+              <input type="file" name="group_image" id="file-field" accept=".png,.jpeg,.jpg,.gif">
+  
+              <span class="file-cover">Group Image</span>
+  
+            </div>
+
+          </div>
+
+          <div class="form-item">
+
+            <input type="submit" value="Create" class="form-button">
+    
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="special-overflow">
+
+  <div class="all-invincible sofilnxzcm-asdoidksm" hidden>{{ chatty_user.token }}</div>
+
+  <div class="all-invincible sofilnxzcm-asdoidksmx" hidden>{{ chatty_user.token }}</div>
+
+  <div class="expand-image">
+
+    <img src="" alt="">
+
+  </div>
+
+</div>
+
+{% endblock content %}

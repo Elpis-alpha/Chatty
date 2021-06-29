@@ -1,0 +1,314 @@
+@font-face{
+  src: url(../font/noto_serif.ttf);
+  font-family: BaseFont;
+}
+
+@font-face{
+  src: url(../font/mate_SC.ttf);
+  font-family: MateFont;
+}
+
+@media screen and (max-width: 800px) {
+  
+  html{
+    font-size: 14px;
+  }
+
+}
+
+@media screen and (max-width: 700px) {
+  
+  html{
+    font-size: 13px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+  
+  html{
+    font-size: 12px;
+  }
+
+}
+
+@media screen and (max-width: 500px) {
+  
+  html{
+    font-size: 11px;
+  }
+
+}
+
+@media screen and (max-width: 400px) {
+  
+  html{
+    font-size: 10px;
+  }
+
+}
+
+@media screen and (max-width: 300px) {
+  
+  html{
+    font-size: 8px;
+  }
+
+}
+
+@media screen and (max-width: 200px) {
+  
+  html{
+    font-size: 5px;
+  }
+
+}
+
+@media screen and (max-width: 100px) {
+  
+  html{
+    font-size: 4px;
+  }
+
+}
+
+@media screen and (max-width: 80px) {
+  
+  html{
+    font-size: 3px;
+  }
+
+}
+
+@media screen and (max-width: 50px) {
+  
+  html{
+    font-size: 2px;
+  }
+
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+  position: relative;
+  font-family: inherit;
+  font-size: inherit;
+  fill: inherit;
+}
+
+body{
+  background-color: #f4f4f4;
+  line-height: 1.6rem;
+  font-family: BaseFont;
+  font-size: .8rem;
+}
+
+.cover-all{
+  z-index: 10;
+  position: absolute;
+  top: 0; left: 0;
+  bottom: 0; right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+div.site-topper{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  z-index: 500;
+  background-color: #f4f4f4;
+}
+
+div.site-topper nav{
+  display: flex;
+}
+
+svg{
+  height: inherit;
+  width: inherit;
+}
+
+i{
+  height: 1rem;
+  cursor: pointer;
+  display: flex;
+  z-index: 1;
+}
+
+i svg{
+  z-index: -5;
+}
+
+body{
+  min-height: 100vh;
+}
+
+div.big-wrapper{
+  width: 100%;
+  min-height: 100vh;
+}
+
+div.after-site-topper{
+  height: 4rem;
+  min-height: 4rem;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.all-invincible{
+  display: none;
+  position: absolute;
+  height: 0; width: 0;
+  visibility: hidden;
+  opacity: 0;
+}
+
+
+/* Main Nav Style */
+div.site-topper nav{
+  box-shadow: 0 0 11px 1px black;
+  font-family: MateFont;
+}
+
+div.site-topper nav div.main-logo{
+  min-width: 0;
+  padding: 1.2rem;
+}
+
+div.site-topper nav div.main-logo a{
+  display: block;
+  color: black;
+  text-decoration: none;
+  transition: all .5s;
+}
+
+div.site-topper nav div.main-logo a:hover{
+  color: green;
+}
+
+div.site-topper nav div.main-logo a h1{
+  font-size: 1.6rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+div.site-topper nav div.side-logo{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+div.site-topper nav div.side-logo > div{
+  padding: 0 1rem;
+}
+
+div.site-topper nav div.side-logo > div a{
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: all .5s;
+}
+
+div.site-topper nav div.side-logo > div a:hover{
+  color: green;
+}
+
+div.site-topper nav div.side-logo > div a i{
+  padding-left: .5rem;
+  transition: all .5s;
+}
+
+div.site-topper nav div.side-logo > div a:hover i{
+  fill: green;
+}
+
+div.full-holder{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+div.full-holder main{
+  width: 100%;
+  flex: 1;
+}
+
+div.full-holder div.sidebar{
+  background-color: #d6d6d6;
+  height: 100%;
+  box-shadow: 0 0 10px 1px black;
+  z-index: 200;
+  width: 10rem;
+  right: 10rem;
+
+  position: fixed;
+}
+
+/* Weird Side Button Style */
+div.full-holder div.sidebar div.side-button{
+  height: 50px;
+  width: 1rem;
+  position: absolute;
+  top: calc(50% - 25px);
+  left: -1rem;
+  border-radius:100% 0px 0px 100%;
+  border-left: 0;
+  background-color: black;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  fill: white;
+  opacity: .3;
+  transition: all .5s;
+}
+
+div.full-holder div.sidebar div.side-button:hover{
+  opacity: 1;
+}
+
+div.full-holder div.sidebar div.side-button:hover i{
+  fill: white;
+  animation: rotate-sidebutton 2s 1;
+}
+
+div.full-holder.side-out div.sidebar{
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+
+div.full-holder.side-in div.sidebar{
+  right: -10rem;
+  bottom: 0;
+  top: 0;
+}
+
+div.full-holder.side-in.moving div.sidebar{
+  animation: slide-close-sidenav 1s 1;
+}
+
+div.full-holder.side-out.moving div.sidebar{
+  animation: slide-close-sidenav 1s 1 reverse;
+}
+
+@keyframes slide-close-sidenav{
+  0%{ right: 0;}
+  100%{ right: -10rem;}
+}
+
+@keyframes rotate-sidebutton{
+  0%{ transform: rotate(0deg)}
+  100%{ transform: rotate(720deg);}
+}

@@ -1,0 +1,119 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }} | {{ other_user.display_name }} Dialogue{% endblock title %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/dialogue.css' %}">
+
+<script defer src="{% static 'Chat/js/dialogue.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="left-side">
+
+  <div class="info">{{ other_user }}</div>
+
+</div>
+
+
+<div class="right-side" data-user="{{ chatty_user.username }}" data-other="{{ other_user.username }}">
+
+  <section class="messages">
+
+    <div class="all-invincible sofilnxzcm-asdoidksm" hidden>{{ chatty_user.token }}</div>
+    <div class="all-invincible sofilnxzcm-asdoidksmx" hidden>{{ chatty_user.token }}</div>
+
+    <div class="inner">
+
+      <div class="my-loaders">
+
+        <img src="{% static 'Chat/images/loader.gif' %}" alt="">
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <div class="head-over-bar">
+
+    <div class="inside-head-over">
+
+      <div class="back"><a href="{% url 'chat:home' %}"><i class="js-angle-left"></i></a></div>
+
+      <div class="name"><a href="{% url 'chat:user-detail' other_user.username %}">{{ other_user.display_name }}</a></div>
+
+      <span id="write-date" data-date="{{ other_user.last_seen }}"></span>
+
+    </div>
+
+  </div>
+
+  <section class="chat-input">
+
+    <div class="inner">
+
+      <form id="chat-form" method="post" enctype="multipart/form-data">
+
+        <div class="form-item other-fields">
+
+          <span class="add-username">Add</span>
+
+          <div class="file-input">
+
+            <input type="file" id="file-field">
+
+            <span class="file-cover">Add a File</span>
+
+          </div>
+
+        </div>
+
+        <div class="form-item message-field">
+
+          <textarea name="message" id="message-text" class="message-text"></textarea>
+
+        </div>
+
+        <div class="form-item submit">
+
+          <button>
+
+            <i class="js-paper-plane"></i>
+
+          </button>
+
+        </div>
+
+        <div class="reffered-to" data-ref=""></div>
+
+      </form>
+
+    </div>
+
+  </section>
+
+</div>
+
+
+<div class="special-overflow">
+
+  <div class="expand-image">
+
+    <img src="" alt="">
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  {% load static %}
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chatty | {% block title %}{% endblock title %}</title>
+
+  <link rel="shortcut icon" href="{% static 'fav.ico' %}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{% static 'Authentication/css/base.css' %}">
+
+  <script defer src="{% static 'Authentication/js/base.js' %}"></script>
+
+  {% block otherlinks %}{% endblock otherlinks %}
+
+</head>
+
+<body>
+  
+  <div class="big-wrapper">
+
+    <div class="full-holder">
+
+      <main>
+
+        <div class="main-content">
+
+          <div class="auth-card-holder">
+
+            <div class="auth-card">
+
+              {% block content %}{% endblock content %}
+              
+            </div>
+            
+          </div>
+
+        </div>
+
+      </main>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

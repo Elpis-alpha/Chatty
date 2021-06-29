@@ -1,0 +1,213 @@
+div.main-content{
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+}
+
+div.main-content > div.left-side{
+  flex: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 66.66vw;
+}
+
+div.main-content > div.right-side{
+  border-left: 1px solid black;
+  flex: 1;
+  display: flex;
+  width: 33vw;
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+div.main-content > div.left-side div.inner{
+  width: 100%;
+}
+
+div.main-content > div.special-overflow{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+div.main-content > div.special-overflow.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image{
+  display: none;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.special-overflow > div.expand-image.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image img{
+  max-height: 70%;
+  max-width: 70%;
+  box-shadow: 0 0 10px 1px black;
+}
+
+
+
+
+/* Authentication Style */
+div.auth-card-holder{
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card{
+  max-width: 500px;
+  width: 80%;
+  padding: 1rem;
+  box-shadow: 0 0 7px 1px black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: white;
+}
+
+div.auth-card div.card-inside{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.auth-card div.card-text{
+  color: black;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+div.auth-card div.card-form{
+  width: 100%;
+}
+
+div.auth-card div.card-form form{
+  width: 100%;
+}
+
+div.auth-card div.card-form form .form-item{
+  width: 100%;
+  margin-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div.auth-card div.card-form form .form-item .basic-input{
+  background-color: #f4f4f4;
+  border-radius: .3rem;
+  padding: .3rem;
+  padding-left: .5rem;
+  width: 70%;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 0;
+  transition: all .5s;
+}
+
+div.auth-card div.card-form form .form-item input.basic-input:focus{
+  border: 0px none;
+  box-shadow: 0 0 5px 1px grey;
+}
+
+div.auth-card div.card-form form .form-item textarea{
+  background-color: #f4f4f4;
+  border-radius: .3rem;
+  padding: .3rem;
+  padding-left: .5rem;
+  width: 70%;
+  border: 1px solid grey;
+  box-shadow: 0 0 0 0;
+  transition: all .5s;
+  height: 6rem;
+}
+
+div.auth-card div.card-form form .form-item textarea:focus{
+  border: 0px none;
+  box-shadow: 0 0 5px 1px grey;
+}
+
+div.auth-card div.card-form form .form-item div.file-input{
+  z-index: 9;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+div.auth-card div.card-form form .form-item input#file-field{
+  z-index: 10;
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+div.auth-card div.card-form form .form-item span.file-cover{
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #484aeb;
+  z-index: 9;
+  padding: .2rem .5rem;
+  border-radius: .5rem;
+  color: white;
+  text-align: center;
+  line-height: .9rem;
+  width: 80%;
+  font-size: .7rem;
+  margin-top: .1rem;
+  transition: box-shadow .5s;
+}
+
+div.auth-card div.card-form form .form-item span.file-cover.loaded{
+  background-color: green;
+}
+
+div.auth-card div.card-form form .form-item span.file-cover.error{
+  background-color: red;
+}
+
+div.auth-card div.card-form form .form-item div.file-input:hover span.file-cover{
+  box-shadow: 0 0 5px 1px #15176e;
+}
+
+div.auth-card div.card-form form .form-item .form-button{
+  background-color: transparent;
+  border-radius: .3rem;
+  padding: .3rem;
+  width: 60%;
+  border: 1px solid royalblue;
+  transition: all .5s;
+  color: royalblue;
+}
+
+div.auth-card div.card-form form .form-item .form-button:hover{
+  background-color: royalblue;
+  box-shadow: 0 0 5px 1px white;
+  color: white;
+  cursor: pointer;
+}

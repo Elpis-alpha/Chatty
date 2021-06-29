@@ -1,0 +1,146 @@
+{% extends "Authentication/base.html" %}
+
+{% load static %}
+
+
+{% block title %}Register{% endblock title %}
+
+
+{% block otherlinks %}
+
+<script defer src="{% static 'Authentication/js/register.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="card-inside">
+
+  <div class="card-logo">
+
+    <img src="{% static 'Authentication/images/imagefav.png' %}" alt="">
+
+  </div>
+
+  <div class="card-text">
+
+    Create an account with Chatty
+
+  </div>
+
+  <div class="card-message">
+
+    <span id="cd-message"></span>
+
+    <span id="card-close">
+
+      <i class="js-crossx"></i>
+
+    </span>
+
+  </div>
+
+  <div class="card-form">
+
+    <form method="POST" action="{% url 'authviews:register'  %}" id="sendform">
+
+      {% csrf_token %}
+
+      <div class="form-item">
+
+        <input type="text" required name="display_name" autocomplete="off" id="displayField" placeholder="Display Name" class="basic-input">
+
+        <small id="displayField-text"></small>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="text" required name="username" autocomplete="off" id="usernameField" placeholder="Username" class="basic-input">
+
+        <small id="nameField-text"></small>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="text" required name="email" autocomplete="off" id="emailField" placeholder="Email" class="basic-input">
+
+        <small id="emailField-text"></small>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="password" required autocomplete="off" id="passwordField" name="password" class="basic-input end-svg" placeholder="Password">
+
+        <small id="passwordField-text"></small>
+
+        <div class="the-end-svg">
+
+          <span id="the-end-svg"></span>
+
+          <i class="js-eyeliner"></i>
+
+        </div>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="password" required autocomplete="off" id="passwordField2" name="spassword" class="basic-input end-svg" placeholder="Confirm Password">
+
+        <small id="passwordField2-text"></small>
+
+        <div class="the-end-svg">
+
+          <span id="the-end-svg2"></span>
+
+          <i class="js-eyeliner"></i>
+
+        </div>
+
+      </div>
+
+      <div class="form-item">
+
+        <input type="submit" value="Register" class="form-button">
+
+      </div>
+
+      <input type="number" style="display: none" name="date_created" id="dateField">
+
+    </form>
+
+  </div>
+
+  <div class="card-or-else">
+
+    <div class="or-for-form">
+
+      <span class="flat-border"></span>
+
+      <span class="the-or">OR</span>
+
+      <span class="flat-border"></span>
+
+    </div>
+
+    <div class="other-or">
+
+      <a href="{% url 'authviews:login' %}">Login</a>
+
+      <a href="{% url 'authviews:new_password'  %}">Forgot Password</a>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% comment %} <p><a href="{% url 'authviews:login' %}">Bitches</a></p> {% endcomment %}
+
+
+{% endblock content %}

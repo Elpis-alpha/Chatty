@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  {% load static %}
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Chatty | {% block title %}{% endblock title %}</title>
+
+  <link rel="shortcut icon" href="{% static 'fav.ico' %}" type="image/x-icon">
+
+  <link rel="stylesheet" href="{% static 'Chat/css/base.css' %}">
+
+  <link rel="stylesheet" href="{% static 'Chat/css/notification.css' %}">
+
+  <script defer src="{% static 'Chat/js/base.js' %}"></script>
+
+  <script defer src="{% static 'Chat/js/notification.js' %}"></script>
+
+  {% block otherlinks %}{% endblock otherlinks %}
+
+</head>
+
+
+<body>
+
+  <div class="big-wrapper">
+
+    <div class="site-topper">
+
+      <nav>
+
+        <div class="main-logo">
+
+          <a href="{% url 'chat:home' %}">
+
+            <h1>{{ chatty_user }}</h1>
+
+          </a>
+
+        </div>
+
+        <div class="side-logo">
+
+          <div class="name">
+
+            <a href="{% url 'chat:new-group' %}">
+
+              New
+
+            </a>
+
+          </div>
+
+          <div class="email">
+
+            {% block settings_block %}
+
+            <a href="{% url 'chat:chatty-settings' %}">
+
+              Settings
+
+            </a>
+
+            {% endblock settings_block %}
+
+          </div>
+
+          <div class="exit">
+
+            <a href="{% url 'authviews:logout' %}">
+
+              Logout<i class="js-logout"></i>
+
+            </a>
+
+          </div>
+
+        </div>
+
+      </nav>
+
+    </div>
+
+    <div class="full-holder side-in">
+
+      <main>
+
+        <div class="after-site-topper"></div>
+
+        {% block search_block %}{% endblock search_block %}
+
+        <div class="main-content">
+
+          {% block content %}{% endblock content %}
+
+        </div>
+
+      </main>
+
+      <div class="sidebar">
+
+        <div class="side-content">
+
+          <div class="the-sidebar" data-user="{{ chatty_user.username }}"></div>
+
+        </div>
+
+        <div id="bp-ssb" class="side-button">
+
+          <div class="all-invincible sofilnxzcm-asdoidkxm" hidden>{{ chatty_user.token }}</div>
+
+          <i class="pin-1 js-angle-left"></i>
+
+          <i class="pin-2 js-angle-left"></i>
+
+        </div>
+
+      </div>
+
+      <div class="new-notification">
+
+        <a class="notification-holder" href="">
+
+          <div class="noti-top">
+
+            <div class="noti-top-svg"><i class="js-message"></i></div>
+
+            <div class="noti-top-message">Message</div>
+
+            <div class="time-sent">3h</div>
+
+          </div>
+
+          <div class="noti-head">Pamela JimeneXs</div>
+
+          <div class="noti-body">Pamela JimeneXs has updated his/her profile</div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+
+</html>

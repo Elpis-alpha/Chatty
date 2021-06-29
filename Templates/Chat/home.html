@@ -1,0 +1,152 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }}{% endblock title %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/home.css' %}">
+
+<script defer src="{% static 'Chat/js/home.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block search_block %}
+
+<div class="search-bar-holder">
+
+  <div class="search-bar">
+
+    <div class="search">
+
+      <input type="text" class="find-bar">
+
+    </div>
+
+    <div class="search-button">
+
+      <button class="find-button">Search</button>
+
+    </div>
+
+  </div>
+
+</div>
+
+{% endblock search_block %}
+
+
+{% block content %}
+
+
+<div class="left-side" data-user="{{ chatty_user.username }}">
+
+  <div class="inner loaders">
+
+    <div class="my-loaders">
+
+      <img src="{% static 'Chat/images/loader.gif' %}" alt="">
+
+    </div>
+
+  </div>
+
+  <div class="inner-other loaders">
+
+    <span>Other Users</span>
+
+    <div class="my-loaders">
+
+      <img src="{% static 'Chat/images/loader.gif' %}" alt="">
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="right-side">
+
+  <div class="preview-card" id="preview-card">
+
+    <div class="preview-image">
+
+      <div class="image-cont">
+
+        <img src="{% static 'Chat/images/user1.jpg' %}" alt="Profile Pic">
+
+      </div>
+
+    </div>
+
+    <div class="preview-name">
+
+      <div class="label">Name:</div>
+
+      <div><em>Name of Group or Person</em></div>
+
+    </div>
+
+    <div class="preview-name">
+
+      <div class="label">Email:</div>
+
+      <div><em>Email of Person for Dialogue Only</em></div>
+
+    </div>
+
+    <div class="preview-created">
+
+      <div class="label">Last Seen:</div>
+
+      <div><em>Last Seen Online for Dialogue Only</em></div>
+
+    </div>
+
+    <div class="preview-des">
+
+      <div class="label">Description:</div>
+
+      <div><em>Description or Biography</em></div>
+
+    </div>
+
+    <div class="preview-membs">
+
+      <div class="label">Members:</div>
+
+      <div>List of Members for Groups Only</div>
+
+    </div>
+
+    <div class="preview-created">
+
+      <div class="label">Date Created:</div>
+
+      <div><em>Date Created or Joined</em></div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="special-overflow">
+
+  <div class="all-invincible sofilnxzcm-asdoidksm" hidden>{{ chatty_user.token }}</div>
+
+  <div class="all-invincible sofilnxzcm-asdoidksmx" hidden>{{ chatty_user.token }}</div>
+
+  <div class="expand-image">
+
+    <img src="" alt="">
+
+  </div>
+
+</div>
+
+{% endblock content %}

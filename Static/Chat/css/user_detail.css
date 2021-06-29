@@ -1,0 +1,206 @@
+div.big-wrapper{
+  display: flex;
+}
+
+div.big-wrapper main{
+  display: flex;
+  flex-direction: column;
+}
+
+div.main-content{
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  flex: 1;
+}
+
+div.main-content > div.right-side{
+  flex: 1;
+  display: flex;
+  width: 100%;
+  position: relative;
+  align-self: stretch;
+  overflow: hidden;
+}
+
+div.main-content > div.left-side div.inner{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+div.main-content > div.right-side > div.preview-card{
+  padding-top: 1rem;
+  width: inherit;
+  padding: 0 1rem;
+  overflow: auto;
+  font-size: .8rem;
+  border-left: 1px solid grey;
+}
+
+div.main-content > div.right-side > div.preview-card div.imagex-cover{
+  margin: auto;
+  width: 100%;
+  max-width: 20rem;
+}
+
+div.main-content > div.right-side > div.preview-card{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.imagex-cover{
+  margin: 0;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-image{
+  width: 100%;
+  padding-top: 100%;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-image div.image-cont{
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  /* max-height: 30vh; */
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-image > span{
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-image > span > span{
+  background-color: green;
+  color: white;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 500%;
+  box-shadow: 0 0 5px 1px black;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-image div.image-cont img{
+  cursor: pointer;
+  box-shadow: 0 0 5px 1px black;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  /* max-width: 30vh; */
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-name{
+  text-align: center;
+  padding-bottom: .5rem;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-name div.label{
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-des{
+  padding-bottom: .5rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-des div.label{
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-membs{
+  padding-bottom: .5rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-membs div.label{
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-membs a{
+  color: black;
+  text-decoration: none;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-membs a.admin{
+  color: green;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-membs a:hover{
+  text-decoration: underline;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-created{
+  padding-bottom: .5rem;
+  text-align: center;
+}
+
+div.main-content > div.right-side > div.preview-card div.preview-created div.label{
+  font-weight: bold;
+  font-size: 1rem;
+  line-height: 1rem;
+  text-align: center;
+}
+
+div.main-content > div.special-overflow{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 100;
+}
+
+div.main-content > div.special-overflow.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image{
+  display: none;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+div.main-content > div.special-overflow > div.expand-image.show{
+  display: flex;
+}
+
+div.main-content > div.special-overflow > div.expand-image img{
+  max-height: 70%;
+  max-width: 70%;
+  box-shadow: 0 0 10px 1px black;
+}

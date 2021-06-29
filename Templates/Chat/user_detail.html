@@ -1,0 +1,76 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }} | {{ other_user.display_name }} Details{% endblock title %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/user_detail.css' %}">
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="right-side">
+
+  <div class="preview-card" id="preview-card">
+
+    <div class="otherx-cover">
+
+      <div class="preview-name">
+
+        <div class="label">Name:</div>
+
+        <div>{{ other_user.display_name }}</div>
+
+      </div>
+
+      <div class="preview-name">
+
+        <div class="label">Username:</div>
+
+        <div>{{ other_user.username }}</div>
+
+      </div>
+
+      <div class="preview-name">
+
+        <div class="label">Email:</div>
+
+        <div>{{  other_user.email }}</div>
+
+      </div>
+
+      <div class="preview-des">
+
+        <div class="label">Biography:</div>
+
+        <div>
+
+          {% if other_user.biography %}
+
+          {{ other_user.biography }}
+
+          {% else %}
+
+          <em>Not Provided</em>
+
+          {% endif %}
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

@@ -1,0 +1,155 @@
+{% extends "Chat/base.html" %}
+
+{% load static %}
+
+
+{% block title %}{{ chatty_user.display_name }} | {{ chatty_group.group_name }} Group Settings{% endblock title %}
+
+
+{% block settings_block %} <a href="{% url 'chat:group-settings' chatty_group.name %}"> Settings </a>
+{% endblock settings_block %}
+
+
+{% block otherlinks %}
+
+<link rel="stylesheet" href="{% static 'Chat/css/group_settings.css' %}">
+
+<script defer src="{% static 'Chat/js/group_settings.js' %}"></script>
+
+{% endblock otherlinks %}
+
+
+{% block content %}
+
+
+<div class="left-side" data-user="{{ chatty_user.username }}" data-group="{{ chatty_group.name }}">
+
+  <div class="inner">
+
+    <div class="all-invincible sofilnxzcm-asdoidksm" hidden>{{ chatty_user.token }}</div>
+    <div class="all-invincible sofilnxzcm-asdoidksmx" hidden>{{ chatty_user.token }}</div>
+
+    <div class="settings-holder">
+
+      <div class="image-settings">
+
+        <div class="image-container"></div>
+
+        <div class="image-form">
+
+          <div class="file-input">
+
+            <input type="file" name="group_image" id="file-field" accept=".png,.jpeg,.jpg,.gif">
+
+            <span class="file-cover">Group Image</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="name-settings">
+
+        <input type="text" placeholder="Group Name" id="name-field">
+
+        <button class="bottom-full-butt" id="name-field-save">Save</button>
+
+      </div>
+
+      <div class="description-settings">
+
+        <textarea id="description-field" placeholder="Group Description"></textarea>
+
+        <button class="bottom-full-butt" id="description-field-save">Save</button>
+
+      </div>
+
+      <div class="pinned-muted-settings">
+
+        <div class="checkmark-set">
+
+          <input type="checkbox" id="pinned">
+          
+          <label for="pinned">Pinned</label>
+
+        </div>
+
+        <div class="checkmark-set">
+
+          <input type="checkbox" id="muted">
+          
+          <label for="muted">Muted</label>
+
+        </div>
+
+      </div>
+
+      <div class="admin-link">
+
+        <span>Admin Link</span>
+
+        <div class="admin-link-settings">
+
+          <textarea id="admin-link" readonly></textarea>
+
+          <div>
+
+            <button class="right-half-butt" id="admin-link-generate">Generate</button>
+
+            <button class="right-half-butt" id="admin-link-copy">Copy</button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="join-link">
+
+        <span>Join Link</span>
+
+        <div class="generate-invite-link">
+
+          <textarea id="join-link" readonly></textarea>
+
+          <div>
+
+            <button class="right-half-butt" id="join-link-generate">Generate</button>
+
+            <button class="right-half-butt" id="join-link-copy">Copy</button>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <form action="{% url 'chat:group-settings' chatty_group.name %}" class="delete-group" method="post">
+
+        {% csrf_token %}
+
+        <input type="submit" value="Delete Group">
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="special-overflow">
+
+  <div class="expand-image">
+
+    <img src="" alt="">
+
+  </div>
+
+</div>
+
+
+{% endblock content %}

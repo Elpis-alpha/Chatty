@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'channels',
+    # 'channel_redis',
     'Authentication',
     'Chat',
     'API'
@@ -153,7 +154,10 @@ ASGI_APPLICATION = "Chatty.asgi.application"
 
 CHANNEL_LAYERS = {
     'default': {
-        'BACKEND': 'channels.layers.InMemoryChannelLayer',  # Very Important
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',  # Very Important
+        'CONFIG': {
+            'hosts': [('127.0.0.1', 6379)]
+        }
     },
 }
 

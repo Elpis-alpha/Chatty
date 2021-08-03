@@ -1525,6 +1525,8 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
         } else if (data.to == chattyUser.username && data.toGroup == groupName.name && data.type == 'delete-message') {
 
+          console.log(data.id);
+          
           deleteMessage(data.id)
 
         } else {

@@ -226,7 +226,7 @@ class ChattyGroupList(APIView):
 
       if info['is_dialogue'] == True:
 
-        new_group = ChattyGroup(date_created=info['date_created'], is_dialogue=True)
+        new_group = ChattyGroup(date_created=int(info['date_created'] - 10), is_dialogue=True)
 
         new_group.save()
 
@@ -236,7 +236,7 @@ class ChattyGroupList(APIView):
 
         chatty_user = ChattyUser.objects.get(id=info['members'][0])
 
-        messag = Message.objects.create(group=new_group, date_created=int(time.time()*1000), message_type='Text', sender=chatty_user, message='Dialogue with')
+        messag = Message.objects.create(group=new_group, date_created=int(info['date_created'] - 5), message_type='Text', sender=chatty_user, message='Dialogue with')
 
         for membs in info['members']:
 
@@ -633,7 +633,7 @@ class MessageByID(APIView):
 
           if member.username != chatty_user.username:
 
-            ChattyUserNotification.objects.create(name='Message', chatty_user=member, header=group.group_name,
+            ChattyUserNotification.objects.create(name='Message', chatty_user=member, header=chatty_user.display_name,
                                                   content=f'{chatty_user.display_name} has deleted a message in the group', date_sent=int(time.time()*1000), detail=f"Group:{group.name}")
 
         return Response({'msg': 'Message Deleted', 'messageID': xid})

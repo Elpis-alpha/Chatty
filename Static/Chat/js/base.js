@@ -1549,7 +1549,9 @@ const GlobalCtrl = (function () {
 
     const urlx = window.location.protocol + '//' + window.location.host + `/api/messages/by-id/${id}/`
 
+    console.log(1);
     const message = await APICtrl.putAPI_Json(urlx, { token: token, type: 'delete' })
+    console.log(12);
 
     await WebSocketCtrl.sendToUser(otherUser.username, {
       to: otherUser.username,

@@ -490,7 +490,7 @@ div.main-content div.head-over-bar{
   border-radius: 1rem;
   box-shadow: 0 0 5px 1px black;
   padding: 0 .5rem;
-  opacity: .5;
+  opacity: .1;
   transition: opacity .5s;
 }
 

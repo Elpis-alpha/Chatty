@@ -63,7 +63,28 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
       UICtrl.addClass(holderNext, 'chat-next')
 
-      holderNext.innerHTML = `<i class="js-angle-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></i>`
+      switch (type) {
+
+        case "group":
+
+          holderNext.innerHTML = `<a href="/group-detail/${name}" class="chat-next-arrow-link"></a>`
+
+          break;
+
+        case "dialogue":
+
+          holderNext.innerHTML = `<a href="/user-detail/${user}" class="chat-next-arrow-link"></a>`
+
+          break;
+
+        default:
+
+          holderNext.innerHTML = ``
+
+          break;
+      }
+
+      holderNext.innerHTML += `<i class="js-angle-right"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"></path></svg></i>`
 
       holderNext.innerHTML += `<span class="cover-all" data-user="${user}" data-name="${name}" data-type="${type}" onclick="GlobalCtrl.angleArrows(event); return false"><span></span></span>`
 
@@ -672,7 +693,7 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
           }
 
-          chatCard.appendChild(constructChatDetails(group.other_user_name, 'dia', TimeCtrl.datetoTimeStr(new Date(group.last_seen)), '', { message: group.last_message }))
+          chatCard.appendChild(constructChatDetails(group.other_user_name, 'dia', TimeCtrl.datetoTimeStr(new Date(group.last_seen)), '', { message: `Username: ${group.other_user}` }))
 
           allHolder.appendChild(chatCard)
 
@@ -847,7 +868,7 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
                 }
 
-                chatCard.appendChild(constructChatDetails(group.display_name, 'dia', TimeCtrl.datetoTimeStr(new Date(group.last_seen)), '', { message: group.username + ': ' + group.last_message }))
+                chatCard.appendChild(constructChatDetails(group.display_name, 'dia', TimeCtrl.datetoTimeStr(new Date(group.last_seen)), '', { message: `Username: ${group.username}` }))
 
               }
 

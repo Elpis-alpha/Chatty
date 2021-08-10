@@ -156,10 +156,22 @@ CHANNEL_LAYERS = {
     'default': {
         'BACKEND': 'channels_redis.core.RedisChannelLayer',  # Very Important
         'CONFIG': {
-            'hosts': ["rediss://:p04a263abde43aee7a369bcffb9eb0672093dafeffd388ffff77434ad4ac5ec97@ec2-52-54-10-192.compute-1.amazonaws.com:15010"]
+            'hosts': [os.environ.get("REDIS_URL", "redis://localhost:6379")]
         }
     },
 }
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django_redis.cache.RedisCache',  # Very Important
+#         'CONFIG': {
+#             'LOCATION': [os.environ.get("REDIS_URL", "redis://localhost:6379")],
+#             'OPTIONS': {
+#                 "CLIENT_CLASS": "django_redis.client.DefaultClient"
+#             }
+#         }
+#     },
+# }
 
 # For Rest Framework Token Authentication
 REST_FRAMEWORK = {
@@ -195,3 +207,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
 MEDIA_URL = "media/"
 
 django_heroku.settings(locals())
+
+# web: gunicorn Chatty.wsgi
+# websocket: daphne -b 0.0.0.0 -p 5000 Chatty.asgi:application

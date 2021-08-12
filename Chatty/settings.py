@@ -21,6 +21,8 @@ from decouple import config
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
 
+os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 

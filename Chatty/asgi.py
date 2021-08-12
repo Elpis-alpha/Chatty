@@ -7,7 +7,7 @@ For more information on this file, see
 https://docs.djangoproject.com/en/3.2/howto/deployment/asgi/
 """
 
-import os
+import os, django
 
 from django.core.asgi import get_asgi_application
 
@@ -15,24 +15,10 @@ from channels.routing import ProtocolTypeRouter, URLRouter, get_default_applicat
 
 from channels.auth import AuthMiddlewareStack
 
-from Chat.routing import websocket_urlpatterns
-
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Chatty.settings')
 
+django.setup()
 
-application = ProtocolTypeRouter({
-
-  "http": get_asgi_application(),
-
-  "websocket": AuthMiddlewareStack(
-
-    URLRouter(
-
-      websocket_urlpatterns
-
-    )
-
-  ),  
-})
+application = get_default_application()

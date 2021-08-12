@@ -150,7 +150,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Custom Settings Begin Here
 
 # For Channels to work
-ASGI_APPLICATION = "Chatty.asgi.application"   
+ASGI_APPLICATION = "Chatty.routing.application"   
 
 CHANNEL_LAYERS = {
     'default': {
@@ -160,18 +160,6 @@ CHANNEL_LAYERS = {
         }
     },
 }
-
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django_redis.cache.RedisCache',  # Very Important
-#         'CONFIG': {
-#             'LOCATION': [os.environ.get("REDIS_URL", "redis://localhost:6379")],
-#             'OPTIONS': {
-#                 "CLIENT_CLASS": "django_redis.client.DefaultClient"
-#             }
-#         }
-#     },
-# }
 
 # For Rest Framework Token Authentication
 REST_FRAMEWORK = {

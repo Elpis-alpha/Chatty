@@ -19,7 +19,7 @@ import dj_database_url
 
 from decouple import config
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Chatty.settings")
 
 os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
 

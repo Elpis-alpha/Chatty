@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'API'
 ]
 
-django.setup()
+#django.setup()
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

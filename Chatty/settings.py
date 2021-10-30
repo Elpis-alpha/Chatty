@@ -11,9 +11,6 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import django
 
-django.setup()
-
-
 import os
 
 from pathlib import Path
@@ -61,6 +58,8 @@ INSTALLED_APPS = [
     'Chat',
     'API'
 ]
+
+django.setup()
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

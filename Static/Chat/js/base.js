@@ -2627,6 +2627,8 @@ const UICtrl = (function () {
 
     chatAddUsername: findElement('.add-username'),
 
+    formDeleteUser: findElement('#form-felete-chatty-user'),
+
 
     // Settings Form
     imageContainer: findElement('.image-container'),

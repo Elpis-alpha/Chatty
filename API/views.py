@@ -655,11 +655,13 @@ class MessageByGroupLast(APIView):
 
       message = Message.objects.all().filter(group=group).exclude(message_type='Text').order_by('-date_created')[:1]
 
+      theCount = Message.objects.all().filter(group=group, date_received=None).exclude(message_type='Text').count()
+
       try:
 
         message = message[0]
 
-        message = {'message': message.message, 'date_created': message.date_created, 'date_received': message.date_received, 'sender_id': message.sender.id}
+        message = {'message': message.message, 'date_created': message.date_created, 'date_received': message.date_received, 'sender_id': message.sender.id, 'count': theCount}
 
       except IndexError:
 
@@ -1177,9 +1179,15 @@ class AllGroupsByUser(APIView):
 
         last_message = Message.objects.all().filter(group=group['id']).order_by('-date_created')[:1].values()
 
+        theCount = Message.objects.all().filter(group=group['id'], date_received=None).exclude(sender_id=chatty_user.pk).exclude(message_type='Text')
+
+        theCount = theCount.count()
+
         group_settings = ChattyGroupSetting.objects.get(group=group['id'], chatty_user=chatty_user)
 
         group['secret_key_join'] = None
+
+        group['count'] = theCount
 
         group['secret_key_admin'] = None
 

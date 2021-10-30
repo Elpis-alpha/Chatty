@@ -146,7 +146,7 @@ const Application = (function (UICtrl, APICtrl,
 
       passwordField.addEventListener('input', (e) => {
 
-        const re = /(?=.*?[a-z]).{5,}/
+        const re = /(?=.*?[a-z0-9]).{5,}/
 
         if (re.test(e.target.value)) {
 

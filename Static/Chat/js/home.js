@@ -96,7 +96,7 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
     }
 
-    const constructChatDetails = (name, typeSVG, date, sent, message) => {
+    const constructChatDetails = (name, typeSVG, date, sent, message, messageNumber) => {
 
       const holder = document.createElement('div')
 
@@ -153,8 +153,19 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
       holderTop.appendChild(holderTopSVG)
 
-      holderTop.appendChild(holderTopMessage)
+      if (parseInt(messageNumber) > 0) {
 
+        const holderTopMessageNumber = document.createElement('div')
+
+        UICtrl.addClass(holderTopMessageNumber, 'message-number')
+
+        holderTopMessageNumber.innerText = messageNumber
+
+        holderTop.appendChild(holderTopMessageNumber)
+
+      }
+
+      holderTop.appendChild(holderTopMessage)
 
 
       const holderBottom = document.createElement('div')
@@ -187,6 +198,11 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
       holderBottomMessage.appendChild(document.createTextNode(message.message))
 
+      if (parseInt(messageNumber) > 0) {
+
+        UICtrl.addClass(holderBottomMessage, 'unread-message')
+
+      }
 
       holderBottom.appendChild(holderBottomStatus)
 
@@ -312,15 +328,15 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
         const url3 = window.location.protocol + '//' + window.location.host + `/api/chatty-group-settings/get-or-post/`
 
-        const gpSetting = await APICtrl.postAPI_Json(url2, { token: token, name: group.name })
+        const gpSetting = await APICtrl.postAPI_Json(url3, { token: token, name: group.name })
 
         if (gpSetting.setting.pinned) {
 
-          allHolder.style.order = '1'
+          target.style.order = '1'
 
         } else {
 
-          allHolder.style.order = '3'
+          target.style.order = '3'
 
         }
 
@@ -384,11 +400,11 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
           if (message.sender_id == chattyUser.id) {
 
-            chatCard.appendChild(constructChatDetails(otherUser.display_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(message.date_created)), sent, message))
+            chatCard.appendChild(constructChatDetails(otherUser.display_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(message.date_created)), sent, message, message.count))
 
           } else {
 
-            chatCard.appendChild(constructChatDetails(otherUser.display_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(message.date_created)), '', message))
+            chatCard.appendChild(constructChatDetails(otherUser.display_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(message.date_created)), '', message, message.count))
 
           }
 
@@ -446,11 +462,11 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
           if (message.sender_id == chattyUser.id) {
 
-            chatCard.appendChild(constructChatDetails(group.group_name, 'group', TimeCtrl.datetoTimeStr(new Date(message.date_created)), sent, message))
+            chatCard.appendChild(constructChatDetails(group.group_name, 'group', TimeCtrl.datetoTimeStr(new Date(message.date_created)), sent, message, message.count))
 
           } else {
 
-            chatCard.appendChild(constructChatDetails(group.group_name, 'group', TimeCtrl.datetoTimeStr(new Date(message.date_created)), '', message))
+            chatCard.appendChild(constructChatDetails(group.group_name, 'group', TimeCtrl.datetoTimeStr(new Date(message.date_created)), '', message, message.count))
 
           }
 
@@ -545,11 +561,11 @@ const Application = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, WebSock
 
             if (group.last_message.sender_id == chattyUser.id) {
 
-              chatCard.appendChild(constructChatDetails(group.other_user_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(group.last_message.date_created)), sent, group.last_message))
+              chatCard.appendChild(constructChatDetails(group.other_user_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(group.last_message.date_created)), sent, group.last_message, group.count))
 
             } else {
 
-              chatCard.appendChild(constructChatDetails(group.other_user_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(group.last_message.date_created)), '', group.last_message))
+              chatCard.appendChild(constructChatDetails(group.other_user_name, msgSvg, TimeCtrl.datetoTimeStr(new Date(group.last_message.date_created)), '', group.last_message, group.count))
 
             }
 

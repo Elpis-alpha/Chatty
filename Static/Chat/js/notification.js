@@ -130,6 +130,8 @@ const NotificationCtrl = (function (UICtrl, APICtrl, GlobalCtrl, SpecialCtrl, We
         stop: 50
       })
 
+      UIVars.theSideBar.innerHTML = ''
+
       for (let index = 0; index < notifications.length; index++) {
 
         const notification = notifications[index];

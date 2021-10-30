@@ -8,6 +8,12 @@
   font-family: MateFont;
 }
 
+@font-face{
+  src: url(../font/comic.ttf);
+  font-family: 'Comic';
+}
+
+
 @media screen and (max-width: 800px) {
   
   html{

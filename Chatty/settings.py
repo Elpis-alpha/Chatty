@@ -33,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-ow6+%)f&w3-!(65+8&vpbkh4mp6qd%p_t=s1up&vknekm!k2*_'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -192,16 +192,16 @@ EMAIL_PORT = 587
 
 EMAIL_USE_TLS = True
 
-EMAIL_HOST_USER = 'elpis409@gmail.com'
+EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 
-EMAIL_HOST_PASSWORD = "gpygrfjcbhbtcdfy"
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
 # For Media Files
 MEDIA_ROOT = os.path.join(BASE_DIR, "Media")
 
 MEDIA_URL = "media/"
 
-django_heroku.settings(locals())
+django_heroku.settings(locals()) 
 
 # web: gunicorn Chatty.wsgi
 # websocket: daphne -b 0.0.0.0 -p 5000 Chatty.asgi:application
